@@ -1,0 +1,2687 @@
+---
+genPolicy: "None"
+openAPISpec: null
+generators:
+- type: "auth_invalid"
+  owner: "Default"
+  assertions:
+  - "Allowed:@StatusCode == 200"
+  - "Disallowed:@StatusCode == 401 OR @StatusCode == 403"
+  tags:
+  - "OWASP-API2"
+  - "[PCI DSS 3.0] 6.5.8"
+  - "[PCI DSS 3.0] 6.5.10"
+  - "OTG-AUTHN-004"
+  - "OWASP API Security Top 10"
+  - "Broken Authentication"
+  - "Non-Intrusive"
+  severity: "Critical"
+  database: null
+  inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: null
+    allowRoles: null
+    pathPatterns: ""
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+  category: "InvalidAuth"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "auth_invalid_empty"
+  owner: "Default"
+  assertions:
+  - "Allowed:@StatusCode == 200"
+  - "Disallowed:@StatusCode == 401 OR @StatusCode == 403"
+  tags:
+  - "OWASP-API2"
+  - "[PCI DSS 3.0] 6.5.8"
+  - "[PCI DSS 3.0] 6.5.10"
+  - "OTG-AUTHN-004"
+  - "OWASP API Security Top 10"
+  - "Broken Authentication"
+  - "Non-Intrusive"
+  severity: "Critical"
+  database: null
+  inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: null
+    allowRoles: null
+    pathPatterns: ""
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+  category: "InvalidAuthEmpty"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "auth_invalid_sql"
+  owner: "Default"
+  assertions:
+  - "Allowed:@StatusCode == 200"
+  - "Disallowed:@ResponseTime < 7000 AND @StatusCode == 401"
+  tags:
+  - "OWASP-API2"
+  - "[PCI DSS 3.0] 6.5.1"
+  - "OTG-AUTHN-004"
+  - "OWASP API Security Top 10"
+  - "Broken Authentication"
+  - "Non-Intrusive"
+  - "Injection"
+  severity: "Critical"
+  database:
+    name: "MySQL"
+    version: "5.7"
+  inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: null
+    allowRoles: null
+    pathPatterns: ""
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+  category: "InvalidAuthSQL"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "rbac"
+  owner: "Default"
+  assertions:
+  - "Disallowed:@StatusCode == 401 OR @StatusCode == 403"
+  - "Allowed:@StatusCode != 401 AND @StatusCode != 403"
+  tags:
+  - "OWASP-API5"
+  - "OWASP - OTG-IDENT-001"
+  - "OWASP API Security Top 10"
+  - "Broken Function Level Authorization"
+  - "Endpoint_Access_Control"
+  severity: "High"
+  database: null
+  inactive: false
+  matches:
+  - name: null
+    value: "AutoMap"
+    methods: null
+    denyRoles: null
+    allowRoles: null
+    pathPatterns: null
+    resourceSamples: "Get:/api/v1/orgs/:Allowed[ROLE_ADMIN]\nPost:/api/v1/accounts/:Allowed[ROLE_ADMIN,ROLE_PM]"
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+  category: "RBAC"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "abac"
+  owner: "Default"
+  assertions:
+  - "Create:@StatusCode == 200 OR @Response.errors != true"
+  - "Disallowed:@StatusCode == 401 OR @StatusCode == 404 OR @Response.errors == true"
+  tags:
+  - "OWASP-API1"
+  - "OWASP API Security Top 10"
+  - "[PCI DSS 3.2.1] 6.5.8"
+  - "Broken Object Level Authorization"
+  - "Penetration Testing"
+  - "Data_Access_Control"
+  severity: "High"
+  database: null
+  inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: "UserB,UserC"
+    allowRoles: "UserA"
+    pathPatterns: null
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources:
+  - id: "8a8081747b0642e4017b0645282600a6"
+    createdBy: null
+    createdDate: null
+    modifiedBy: null
+    modifiedDate: null
+    version: null
+    inactive: true
+    generatorId: "8a8081747b0642e4017b06451c300009"
+    resourceName: "Accounts"
+    initScriptName: "AccountsCreateInitAbac"
+    createUserAuth: "UserA"
+    createEndpoint: "MOCK:/accounts/{AccountId}"
+    typeThreeCreateEndpoint: null
+    createBody: "{}"
+    deleteEndpoint: null
+    validations:
+    - userAuth: "UserC"
+      endpoint: "GET:/accounts"
+      path: "GET:/accounts"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/accounts"
+      path: "GET:/accounts"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserC"
+      endpoint: "GET:/accounts/{AccountId}"
+      path: "GET:/accounts/{AccountId}"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/accounts/{AccountId}"
+      path: "GET:/accounts/{AccountId}"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    scripts: []
+    lock: false
+    enumValues: null
+  - id: "8a8081747b0642e4017b0645282600a5"
+    createdBy: null
+    createdDate: null
+    modifiedBy: null
+    modifiedDate: null
+    version: null
+    inactive: true
+    generatorId: "8a8081747b0642e4017b06451c300009"
+    resourceName: "Beneficiaries"
+    initScriptName: "BeneficiariesCreateInitAbac"
+    createUserAuth: "UserA"
+    createEndpoint: "MOCK:/beneficiaries"
+    typeThreeCreateEndpoint: null
+    createBody: "{}"
+    deleteEndpoint: null
+    validations:
+    - userAuth: "UserC"
+      endpoint: "GET:/accounts/{AccountId}/beneficiaries"
+      path: "GET:/accounts/{AccountId}/beneficiaries"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/accounts/{AccountId}/beneficiaries"
+      path: "GET:/accounts/{AccountId}/beneficiaries"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserC"
+      endpoint: "GET:/beneficiaries"
+      path: "GET:/beneficiaries"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/beneficiaries"
+      path: "GET:/beneficiaries"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    scripts: []
+    lock: false
+    enumValues: null
+  - id: "8a8081747b0642e4017b0645282600a4"
+    createdBy: null
+    createdDate: null
+    modifiedBy: null
+    modifiedDate: null
+    version: null
+    inactive: true
+    generatorId: "8a8081747b0642e4017b06451c300009"
+    resourceName: "Statements,Transactions"
+    initScriptName: "Statements,TransactionsCreateInitAbac"
+    createUserAuth: "UserA"
+    createEndpoint: "MOCK:/accounts/{AccountId}/statements/{StatementId}/transactions"
+    typeThreeCreateEndpoint: null
+    createBody: "{}"
+    deleteEndpoint: null
+    validations:
+    - userAuth: "UserC"
+      endpoint: "GET:/accounts/{AccountId}/statements/{StatementId}/transactions"
+      path: "GET:/accounts/{AccountId}/statements/{StatementId}/transactions"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/accounts/{AccountId}/statements/{StatementId}/transactions"
+      path: "GET:/accounts/{AccountId}/statements/{StatementId}/transactions"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    scripts: []
+    lock: false
+    enumValues: null
+  - id: "8a8081747b0642e4017b0645282600a3"
+    createdBy: null
+    createdDate: null
+    modifiedBy: null
+    modifiedDate: null
+    version: null
+    inactive: true
+    generatorId: "8a8081747b0642e4017b06451c300009"
+    resourceName: "Offers"
+    initScriptName: "OffersCreateInitAbac"
+    createUserAuth: "UserA"
+    createEndpoint: "MOCK:/offers"
+    typeThreeCreateEndpoint: null
+    createBody: "{}"
+    deleteEndpoint: null
+    validations:
+    - userAuth: "UserC"
+      endpoint: "GET:/accounts/{AccountId}/offers"
+      path: "GET:/accounts/{AccountId}/offers"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/accounts/{AccountId}/offers"
+      path: "GET:/accounts/{AccountId}/offers"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserC"
+      endpoint: "GET:/offers"
+      path: "GET:/offers"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/offers"
+      path: "GET:/offers"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    scripts: []
+    lock: false
+    enumValues: null
+  - id: "8a8081747b0642e4017b0645282600a2"
+    createdBy: null
+    createdDate: null
+    modifiedBy: null
+    modifiedDate: null
+    version: null
+    inactive: true
+    generatorId: "8a8081747b0642e4017b06451c300009"
+    resourceName: "Statements"
+    initScriptName: "StatementsCreateInitAbac"
+    createUserAuth: "UserA"
+    createEndpoint: "MOCK:/statements"
+    typeThreeCreateEndpoint: null
+    createBody: "{}"
+    deleteEndpoint: null
+    validations:
+    - userAuth: "UserC"
+      endpoint: "GET:/accounts/{AccountId}/statements"
+      path: "GET:/accounts/{AccountId}/statements"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/accounts/{AccountId}/statements"
+      path: "GET:/accounts/{AccountId}/statements"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserC"
+      endpoint: "GET:/accounts/{AccountId}/statements/{StatementId}"
+      path: "GET:/accounts/{AccountId}/statements/{StatementId}"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/accounts/{AccountId}/statements/{StatementId}"
+      path: "GET:/accounts/{AccountId}/statements/{StatementId}"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserC"
+      endpoint: "GET:/accounts/{AccountId}/statements/{StatementId}/file"
+      path: "GET:/accounts/{AccountId}/statements/{StatementId}/file"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/accounts/{AccountId}/statements/{StatementId}/file"
+      path: "GET:/accounts/{AccountId}/statements/{StatementId}/file"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserC"
+      endpoint: "GET:/statements"
+      path: "GET:/statements"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/statements"
+      path: "GET:/statements"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    scripts: []
+    lock: false
+    enumValues: null
+  - id: "8a8081747b0642e4017b0645282600a1"
+    createdBy: null
+    createdDate: null
+    modifiedBy: null
+    modifiedDate: null
+    version: null
+    inactive: true
+    generatorId: "8a8081747b0642e4017b06451c300009"
+    resourceName: "Balances"
+    initScriptName: "BalancesCreateInitAbac"
+    createUserAuth: "UserA"
+    createEndpoint: "MOCK:/balances"
+    typeThreeCreateEndpoint: null
+    createBody: "{}"
+    deleteEndpoint: null
+    validations:
+    - userAuth: "UserC"
+      endpoint: "GET:/accounts/{AccountId}/balances"
+      path: "GET:/accounts/{AccountId}/balances"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/accounts/{AccountId}/balances"
+      path: "GET:/accounts/{AccountId}/balances"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserC"
+      endpoint: "GET:/balances"
+      path: "GET:/balances"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/balances"
+      path: "GET:/balances"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    scripts: []
+    lock: false
+    enumValues: null
+  - id: "8a8081747b0642e4017b0645282600a0"
+    createdBy: null
+    createdDate: null
+    modifiedBy: null
+    modifiedDate: null
+    version: null
+    inactive: true
+    generatorId: "8a8081747b0642e4017b06451c300009"
+    resourceName: "Direct Debits"
+    initScriptName: "Direct DebitsCreateInitAbac"
+    createUserAuth: "UserA"
+    createEndpoint: "MOCK:/direct-debits"
+    typeThreeCreateEndpoint: null
+    createBody: "{}"
+    deleteEndpoint: null
+    validations:
+    - userAuth: "UserC"
+      endpoint: "GET:/accounts/{AccountId}/direct-debits"
+      path: "GET:/accounts/{AccountId}/direct-debits"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/accounts/{AccountId}/direct-debits"
+      path: "GET:/accounts/{AccountId}/direct-debits"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserC"
+      endpoint: "GET:/direct-debits"
+      path: "GET:/direct-debits"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/direct-debits"
+      path: "GET:/direct-debits"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    scripts: []
+    lock: false
+    enumValues: null
+  - id: "8a8081747b0642e4017b06452826009f"
+    createdBy: null
+    createdDate: null
+    modifiedBy: null
+    modifiedDate: null
+    version: null
+    inactive: true
+    generatorId: "8a8081747b0642e4017b06451c300009"
+    resourceName: "Standing Orders"
+    initScriptName: "Standing OrdersCreateInitAbac"
+    createUserAuth: "UserA"
+    createEndpoint: "MOCK:/standing-orders"
+    typeThreeCreateEndpoint: null
+    createBody: "{}"
+    deleteEndpoint: null
+    validations:
+    - userAuth: "UserC"
+      endpoint: "GET:/accounts/{AccountId}/standing-orders"
+      path: "GET:/accounts/{AccountId}/standing-orders"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/accounts/{AccountId}/standing-orders"
+      path: "GET:/accounts/{AccountId}/standing-orders"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserC"
+      endpoint: "GET:/standing-orders"
+      path: "GET:/standing-orders"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/standing-orders"
+      path: "GET:/standing-orders"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    scripts: []
+    lock: false
+    enumValues: null
+  - id: "8a8081747b0642e4017b06452826009e"
+    createdBy: null
+    createdDate: null
+    modifiedBy: null
+    modifiedDate: null
+    version: null
+    inactive: true
+    generatorId: "8a8081747b0642e4017b06451c300009"
+    resourceName: "Scheduled Payments"
+    initScriptName: "Scheduled PaymentsCreateInitAbac"
+    createUserAuth: "UserA"
+    createEndpoint: "MOCK:/scheduled-payments"
+    typeThreeCreateEndpoint: null
+    createBody: "{}"
+    deleteEndpoint: null
+    validations:
+    - userAuth: "UserC"
+      endpoint: "GET:/accounts/{AccountId}/scheduled-payments"
+      path: "GET:/accounts/{AccountId}/scheduled-payments"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/accounts/{AccountId}/scheduled-payments"
+      path: "GET:/accounts/{AccountId}/scheduled-payments"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserC"
+      endpoint: "GET:/scheduled-payments"
+      path: "GET:/scheduled-payments"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/scheduled-payments"
+      path: "GET:/scheduled-payments"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    scripts: []
+    lock: false
+    enumValues: null
+  - id: "8a8081747b0642e4017b06452826009d"
+    createdBy: null
+    createdDate: null
+    modifiedBy: null
+    modifiedDate: null
+    version: null
+    inactive: true
+    generatorId: "8a8081747b0642e4017b06451c300009"
+    resourceName: "Products"
+    initScriptName: "ProductsCreateInitAbac"
+    createUserAuth: "UserA"
+    createEndpoint: "MOCK:/products"
+    typeThreeCreateEndpoint: null
+    createBody: "{}"
+    deleteEndpoint: null
+    validations:
+    - userAuth: "UserC"
+      endpoint: "GET:/accounts/{AccountId}/product"
+      path: "GET:/accounts/{AccountId}/product"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/accounts/{AccountId}/product"
+      path: "GET:/accounts/{AccountId}/product"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserC"
+      endpoint: "GET:/products"
+      path: "GET:/products"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/products"
+      path: "GET:/products"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    scripts: []
+    lock: false
+    enumValues: null
+  - id: "8a8081747b0642e4017b06452826009c"
+    createdBy: null
+    createdDate: null
+    modifiedBy: null
+    modifiedDate: null
+    version: null
+    inactive: true
+    generatorId: "8a8081747b0642e4017b06451c300009"
+    resourceName: "Parties"
+    initScriptName: "PartiesCreateInitAbac"
+    createUserAuth: "UserA"
+    createEndpoint: "MOCK:/party"
+    typeThreeCreateEndpoint: null
+    createBody: "{}"
+    deleteEndpoint: null
+    validations:
+    - userAuth: "UserC"
+      endpoint: "GET:/accounts/{AccountId}/parties"
+      path: "GET:/accounts/{AccountId}/parties"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/accounts/{AccountId}/parties"
+      path: "GET:/accounts/{AccountId}/parties"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserC"
+      endpoint: "GET:/accounts/{AccountId}/party"
+      path: "GET:/accounts/{AccountId}/party"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/accounts/{AccountId}/party"
+      path: "GET:/accounts/{AccountId}/party"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserC"
+      endpoint: "GET:/party"
+      path: "GET:/party"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/party"
+      path: "GET:/party"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    scripts: []
+    lock: false
+    enumValues: null
+  - id: "8a8081747b0642e4017b06452825009b"
+    createdBy: null
+    createdDate: null
+    modifiedBy: null
+    modifiedDate: null
+    version: null
+    inactive: true
+    generatorId: "8a8081747b0642e4017b06451c300009"
+    resourceName: "Transactions"
+    initScriptName: "TransactionsCreateInitAbac"
+    createUserAuth: "UserA"
+    createEndpoint: "MOCK:/transactions"
+    typeThreeCreateEndpoint: null
+    createBody: "{}"
+    deleteEndpoint: null
+    validations:
+    - userAuth: "UserC"
+      endpoint: "GET:/accounts/{AccountId}/transactions"
+      path: "GET:/accounts/{AccountId}/transactions"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/accounts/{AccountId}/transactions"
+      path: "GET:/accounts/{AccountId}/transactions"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserC"
+      endpoint: "GET:/transactions"
+      path: "GET:/transactions"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/transactions"
+      path: "GET:/transactions"
+      body: null
+      validationType: "Disallow"
+      inactive: true
+      lock: false
+    scripts: []
+    lock: false
+    enumValues: null
+  - id: "8a8081747b0642e4017b064527cc0099"
+    createdBy: null
+    createdDate: null
+    modifiedBy: null
+    modifiedDate: null
+    version: null
+    inactive: false
+    generatorId: "8a8081747b0642e4017b06451c300009"
+    resourceName: "OBReadConsent1"
+    initScriptName: "OBReadConsent1CreateUserAInitAbac"
+    createUserAuth: "UserA"
+    createEndpoint: "POST:/account-access-consents"
+    typeThreeCreateEndpoint: null
+    createBody: ""
+    deleteEndpoint: "DELETE:/account-access-consents/{{@OBReadConsent1CreateUserAInitAbac_Response.ConsentId}}"
+    validations:
+    - userAuth: "UserC"
+      endpoint: "GET:/account-access-consents/{{@OBReadConsent1CreateUserAInitAbac_Response.ConsentId}}"
+      path: "GET:/account-access-consents/{ConsentId}"
+      body: null
+      validationType: "Disallow"
+      inactive: false
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "GET:/account-access-consents/{{@OBReadConsent1CreateUserAInitAbac_Response.ConsentId}}"
+      path: "GET:/account-access-consents/{ConsentId}"
+      body: null
+      validationType: "Disallow"
+      inactive: false
+      lock: false
+    - userAuth: "UserC"
+      endpoint: "DELETE:/account-access-consents/{{@OBReadConsent1CreateUserAInitAbac_Response.ConsentId}}"
+      path: "DELETE:/account-access-consents/{ConsentId}"
+      body: null
+      validationType: "Disallow"
+      inactive: false
+      lock: false
+    - userAuth: "UserB"
+      endpoint: "DELETE:/account-access-consents/{{@OBReadConsent1CreateUserAInitAbac_Response.ConsentId}}"
+      path: "DELETE:/account-access-consents/{ConsentId}"
+      body: null
+      validationType: "Disallow"
+      inactive: false
+      lock: false
+    scripts: []
+    lock: false
+    enumValues: null
+  category: "ABAC_Level1"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads: []
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "abact2"
+  owner: "Default"
+  assertions:
+  - "Create:@StatusCode == 200 OR @StatusCode == 201"
+  - "Disallowed:@StatusCode == 401 OR @StatusCode == 403 OR @Response.errors == true"
+  tags:
+  - "OWASP-API1"
+  - "OWASP API Security Top 10"
+  - "[PCI DSS 3.2.1] 6.5.8"
+  - "Broken Object Level Authorization"
+  - "Penetration Testing"
+  - "Data_Access_Control"
+  severity: "High"
+  database: null
+  inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: "UserB,UserC"
+    allowRoles: "UserA"
+    pathPatterns: null
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+  category: "ABAC_Level2"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads: []
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "abact3"
+  owner: "Default"
+  assertions:
+  - "Create:@StatusCode == 200 OR @StatusCode == 201"
+  - "Disallowed:@StatusCode == 401 OR @StatusCode == 403"
+  tags:
+  - "OWASP-API1"
+  - "OWASP API Security Top 10"
+  - "[PCI DSS 3.2.1] 6.5.8"
+  - "Broken Object Level Authorization"
+  - "Penetration Testing"
+  - "Data_Access_Control"
+  severity: "High"
+  database: null
+  inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: "UserB,UserC"
+    allowRoles: "UserA"
+    pathPatterns: null
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+  category: "ABAC_Level3"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads: []
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "abact1positive"
+  owner: "Default"
+  assertions:
+  - "Create:@StatusCode == 200 OR @StatusCode == 201"
+  - "Allowed:@StatusCode == 200 AND @Response.errors == false"
+  tags:
+  - "OWASP-API1"
+  - "Penetration Testing"
+  - "Data_Access_Control"
+  - "[2020 CWE TOP 22 ] CWE - 269"
+  - "OWASP API Security Top 10"
+  - "[PCI DSS 3.2.1] 6.5.8"
+  - "Broken Object Level Authorization"
+  severity: "High"
+  database: null
+  inactive: true
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: "UserA"
+    allowRoles: "UserA"
+    pathPatterns: null
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources:
+  - id: "8a8081747b0642e4017b064527f9009a"
+    createdBy: null
+    createdDate: null
+    modifiedBy: null
+    modifiedDate: null
+    version: null
+    inactive: false
+    generatorId: "8a8081747b0642e4017b06451c31000c"
+    resourceName: "OBReadConsent1"
+    initScriptName: "OBReadConsent1CreateUserAInitAbact1Positive"
+    createUserAuth: "UserA"
+    createEndpoint: "POST:/account-access-consents"
+    typeThreeCreateEndpoint: null
+    createBody: ""
+    deleteEndpoint: "DELETE:/account-access-consents/{{@OBReadConsent1CreateUserAInitAbact1Positive_Response.ConsentId}}"
+    validations:
+    - userAuth: "UserA"
+      endpoint: "GET:/account-access-consents/{{@OBReadConsent1CreateUserAInitAbact1Positive_Response.ConsentId}}"
+      path: "GET:/account-access-consents/{ConsentId}"
+      body: null
+      validationType: "Disallow"
+      inactive: false
+      lock: false
+    - userAuth: "UserA"
+      endpoint: "DELETE:/account-access-consents/{{@OBReadConsent1CreateUserAInitAbact1Positive_Response.ConsentId}}"
+      path: "DELETE:/account-access-consents/{ConsentId}"
+      body: null
+      validationType: "Disallow"
+      inactive: false
+      lock: false
+    scripts: []
+    lock: false
+    enumValues: null
+  category: "ABAC_Level4"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads: []
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "abact2positive"
+  owner: "Default"
+  assertions:
+  - "Create:@StatusCode == 200 OR @StatusCode == 201"
+  - "Allowed:@StatusCode == 200 AND @Response.errors == false"
+  tags:
+  - "OWASP-API1"
+  - "OWASP API Security Top 10"
+  - "[PCI DSS 3.2.1] 6.5.8"
+  - "Broken Object Level Authorization"
+  - "Penetration Testing"
+  - "Data_Access_Control"
+  - "[2020 CWE TOP 22 ] CWE - 269"
+  severity: "High"
+  database: null
+  inactive: true
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: "UserA"
+    allowRoles: "UserA"
+    pathPatterns: null
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+  category: "ABAC_Level5"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads: []
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "abact3positive"
+  owner: "Default"
+  assertions:
+  - "Create:@StatusCode == 200 OR @StatusCode == 201"
+  - "Allowed:@StatusCode == 200 AND @Response.errors == false"
+  tags:
+  - "OWASP-API1"
+  - "OWASP API Security Top 10"
+  - "[PCI DSS 3.2.1] 6.5.8"
+  - "Broken Object Level Authorization"
+  - "Penetration Testing"
+  - "Data_Access_Control"
+  - "[2020 CWE TOP 22 ] CWE - 269"
+  severity: "High"
+  database: null
+  inactive: true
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: "UserA"
+    allowRoles: "UserA"
+    pathPatterns: null
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+  category: "ABAC_Level6"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads: []
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "abact7"
+  owner: "Default"
+  assertions:
+  - "Create:@StatusCode == 200 OR @StatusCode == 201"
+  - "Disallowed:@StatusCode == 401 OR @StatusCode == 403"
+  tags:
+  - "OWASP-API1"
+  - "OWASP API Security Top 10"
+  - "[PCI DSS 3.2.1] 6.5.8"
+  - "Broken Object Level Authorization"
+  - "Penetration Testing"
+  - "Data_Access_Control"
+  severity: "High"
+  database: null
+  inactive: true
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: "UserB,UserC"
+    allowRoles: "UserA"
+    pathPatterns: null
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+  category: "ABAC_Level7"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads: []
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "hijack1"
+  owner: "Default"
+  assertions:
+  - "Create:@StatusCode == 200 OR @StatusCode == 201"
+  - "Disallowed:@StatusCode == 401 OR @StatusCode == 403"
+  tags:
+  - "OWASP-API6"
+  - "OWASP API Security Top 10"
+  - "Mass Assignment"
+  - "Penetration Testing"
+  - "Data_Access_Control"
+  severity: "Medium"
+  database: null
+  inactive: true
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: "UserB"
+    allowRoles: "UserA"
+    pathPatterns: null
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+  category: "Hijack_Level1"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads: []
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "sensitive_data_exposure"
+  owner: "Default"
+  assertions:
+  - "@Response.$..email == @Empty"
+  - "@Response.$..ssn == @Empty"
+  tags:
+  - "OWASP-API3"
+  - "[PCI DSS 3.0] 6.5.7"
+  - "[PCI DSS 3.2] 6.5.1"
+  - "OWASP - OTG-INPVAL-001"
+  - "OWASP - OTG-INPVAL-002"
+  - "OWASP OTG-INPVAL-013"
+  - "OWASP API Security Top 10"
+  - "Excessive Data Exposure"
+  - "INPUT VALIDATION"
+  - "NON-INTRUSIVE"
+  severity: "Medium"
+  database: null
+  inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: null
+    allowRoles: null
+    pathPatterns: "GET:/accounts\nGET:/balances\nGET:/beneficiaries\nGET:/direct-debits\n\
+      GET:/offers\nGET:/party\nGET:/products\nGET:/scheduled-payments\nGET:/standing-orders\n\
+      GET:/statements\nGET:/transactions\n"
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+  category: "Sensitive_Data_Exposure"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "ADoS"
+  owner: "Default"
+  assertions:
+  - "@StatusCode != 200 OR @Response.errors == true"
+  - "@StatusCode != 401"
+  - "@StatusCode != 404"
+  tags:
+  - "OWASP-API4"
+  - "[PCI DSS 3.0] 6.5.2"
+  - "OWASP API Security Top 10"
+  - "Lack of Resources & Rate Limiting"
+  - "Intrusive"
+  severity: "Medium"
+  database: null
+  inactive: false
+  matches:
+  - name: "pageSize, page_size, maxResults, max_results"
+    value: null
+    methods: null
+    denyRoles: null
+    allowRoles: null
+    pathPatterns: null
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+  category: "ADoS"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "XSS_Injection"
+  owner: "Default"
+  assertions:
+  - "@StatusCode != 200"
+  tags:
+  - "OWASP-API8"
+  - "[PCI DSS 3.0] 6.5.7"
+  - "[PCI DSS 3.2] 6.5.7"
+  - "[PCI DSS 3.2.1] 6.5.7"
+  - "OWASP - OTG-INPVAL-001"
+  - "OWASP - OTG-INPVAL-002"
+  - "OWASP API Security Top 10"
+  - "Excessive Data Exposure"
+  - "Security Misconfiguration"
+  - "INPUT VALIDATION"
+  - "NON-INTRUSIVE"
+  - "[2020 CWE TOP 1 ] CWE - 79"
+  severity: "Medium"
+  database: null
+  inactive: false
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "XSS_Injection"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527090092"
+    createdBy: null
+    createdDate: 1627897800457
+    modifiedBy: null
+    modifiedDate: 1627897800457
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "INJECTION"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "Windows_Command_Injection_Filter"
+  owner: "Default"
+  assertions:
+  - "@ResponseTime < 7000 OR @StatusCode == 400"
+  tags:
+  - "OWASP-API8"
+  - "[PCI DSS 3.0] 6.5.7"
+  - "[PCI DSS 3.2] 6.5.1"
+  - "[PCI DSS 3.2.1] 6.5.1"
+  - "OWASP - OTG-INPVAL-001"
+  - "OWASP - OTG-INPVAL-002"
+  - "OWASP OTG-INPVAL-013"
+  - "OWASP API Security Top 10"
+  - "Injection"
+  - "INPUT VALIDATION"
+  - "NON-INTRUSIVE"
+  severity: "Medium"
+  database: null
+  inactive: true
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Windows_Command_Injection_Filter"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b0645270b0093"
+    createdBy: null
+    createdDate: 1627897800459
+    modifiedBy: null
+    modifiedDate: 1627897800459
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "STORED_INJECTION"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "Windows_Command_Injection"
+  owner: "Default"
+  assertions:
+  - "@ResponseTime < 7000 OR @StatusCode == 400"
+  tags:
+  - "OWASP-API8"
+  - "[PCI DSS 3.0] 6.5.7"
+  - "[PCI DSS 3.2] 6.5.1"
+  - "[PCI DSS 3.2.1] 6.5.1"
+  - "OWASP - OTG-INPVAL-001"
+  - "OWASP - OTG-INPVAL-002"
+  - "OWASP OTG-INPVAL-013"
+  - "OWASP API Security Top 10"
+  - "Injection"
+  - "INPUT VALIDATION"
+  - "NON-INTRUSIVE"
+  severity: "Critical"
+  database: null
+  inactive: false
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Windows_Command_Injection"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527090092"
+    createdBy: null
+    createdDate: 1627897800457
+    modifiedBy: null
+    modifiedDate: 1627897800457
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "INJECTION"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "Linux_command_injection_filter"
+  owner: "Default"
+  assertions:
+  - "@ResponseTime < 7000 OR @StatusCode == 400"
+  tags:
+  - "OWASP-API8"
+  - "[PCI DSS 3.0] 6.5.7"
+  - "[PCI DSS 3.2] 6.5.1"
+  - "[PCI DSS 3.2.1] 6.5.1"
+  - "OWASP - OTG-INPVAL-001"
+  - "OWASP - OTG-INPVAL-002"
+  - "OWASP OTG-INPVAL-013"
+  - "OWASP API Security Top 10"
+  - "Injection"
+  - "INPUT VALIDATION"
+  - "NON-INTRUSIVE"
+  severity: "Medium"
+  database: null
+  inactive: true
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Linux_Command_Injection_Filter"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b0645270b0093"
+    createdBy: null
+    createdDate: 1627897800459
+    modifiedBy: null
+    modifiedDate: 1627897800459
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "STORED_INJECTION"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "Linux_Command_Injection"
+  owner: "Default"
+  assertions:
+  - "@ResponseTime < 7000 OR @StatusCode == 400"
+  tags:
+  - "OWASP-API8"
+  - "[PCI DSS 3.0] 6.5.7"
+  - "[PCI DSS 3.2] 6.5.1"
+  - "[PCI DSS 3.2.1] 6.5.1"
+  - "OWASP - OTG-INPVAL-001"
+  - "OWASP - OTG-INPVAL-002"
+  - "OWASP OTG-INPVAL-013"
+  - "OWASP API Security Top 10"
+  - "Injection"
+  - "INPUT VALIDATION"
+  - "NON-INTRUSIVE"
+  severity: "Critical"
+  database: null
+  inactive: false
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Linux_Command_Injection"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527090092"
+    createdBy: null
+    createdDate: 1627897800457
+    modifiedBy: null
+    modifiedDate: 1627897800457
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "INJECTION"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "sql_injection_timebound_filter"
+  owner: "Default"
+  assertions:
+  - "@ResponseTime < 7000"
+  - "@StatusCode != 404"
+  tags:
+  - "OWASP-API8"
+  - "[PCI DSS 3.0] 6.5.1"
+  - "[PCI DSS 3.2.1] 6.5.1"
+  - "OWASP - OTG-INPVAL-005"
+  - "OWASP API Security Top 10"
+  - "Injection"
+  - "Intrusive"
+  severity: "Medium"
+  database:
+    name: "MySQL"
+    version: "5.7"
+  inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: null
+    allowRoles: null
+    pathPatterns: null
+    resourceSamples: "User-Create"
+    queryParams: null
+    bodyProperties: "id,name"
+  authors: ""
+  abacResources: null
+  category: "SQL_Injection_Filter"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b0645270b0093"
+    createdBy: null
+    createdDate: 1627897800459
+    modifiedBy: null
+    modifiedDate: 1627897800459
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "STORED_INJECTION"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "sql_injection_timebound"
+  owner: "Default"
+  assertions:
+  - "@ResponseTime < 7000"
+  - "@StatusCode != 404"
+  tags:
+  - "OWASP-API8"
+  - "[PCI DSS 3.0] 6.5.1"
+  - "[PCI DSS 3.2.1] 6.5.1"
+  - "OWASP - OTG-INPVAL-005"
+  - "OWASP API Security Top 10"
+  - "Injection"
+  - "Intrusive"
+  severity: "Critical"
+  database:
+    name: "MySQL"
+    version: "5.7"
+  inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: null
+    allowRoles: null
+    pathPatterns: null
+    resourceSamples: "User-Create"
+    queryParams: null
+    bodyProperties: "id,name"
+  authors: ""
+  abacResources: null
+  category: "SQL_Injection_Timebound"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b0645270b0093"
+    createdBy: null
+    createdDate: 1627897800459
+    modifiedBy: null
+    modifiedDate: 1627897800459
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "STORED_INJECTION"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "sql_injection2_timebound"
+  owner: "Default"
+  assertions:
+  - "@ResponseTime < 7000"
+  - "@StatusCode != 404"
+  tags:
+  - "OWASP-API8"
+  - "[PCI DSS 3.0] 6.5.1"
+  - "[PCI DSS 3.2.1] 6.5.1"
+  - "OWASP - OTG-INPVAL-005"
+  - "OWASP API Security Top 10"
+  - "Injection"
+  severity: "Critical"
+  database:
+    name: "MySQL"
+    version: "5.7"
+  inactive: true
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: null
+    allowRoles: null
+    pathPatterns: null
+    resourceSamples: "User-Create"
+    queryParams: null
+    bodyProperties: "id,name"
+  authors: ""
+  abacResources: null
+  category: "SQL_Injection2"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527090092"
+    createdBy: null
+    createdDate: 1627897800457
+    modifiedBy: null
+    modifiedDate: 1627897800457
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "INJECTION"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "no_sql_injection_timebound_filter"
+  owner: "Default"
+  assertions:
+  - "@ResponseTime < 7000 OR @ResponseTime > 10000"
+  - "@StatusCode != 404"
+  tags:
+  - "OWASP-API8"
+  - "[PCI DSS 3.0] 6.5.1"
+  - "[PCI DSS 3.2.1] 6.5.1"
+  - "OWASP - OTG-INPVAL-005"
+  - "OWASP API Security Top 10"
+  - "Injection"
+  severity: "Medium"
+  database:
+    name: "MongoDB"
+    version: "4.0"
+  inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: null
+    allowRoles: null
+    pathPatterns: null
+    resourceSamples: "User-Create"
+    queryParams: null
+    bodyProperties: "id,name"
+  authors: ""
+  abacResources: null
+  category: "NoSQL_Injection_Filter"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b0645270b0093"
+    createdBy: null
+    createdDate: 1627897800459
+    modifiedBy: null
+    modifiedDate: 1627897800459
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "STORED_INJECTION"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "no_sql_injection_timebound"
+  owner: "Default"
+  assertions:
+  - "@ResponseTime < 7000 OR @ResponseTime > 10000"
+  - "@StatusCode != 404"
+  tags:
+  - "OWASP-API8"
+  - "[PCI DSS 3.0] 6.5.1"
+  - "[PCI DSS 3.2.1] 6.5.1"
+  - "OWASP - OTG-INPVAL-005"
+  - "OWASP API Security Top 10"
+  - "Injection"
+  severity: "Critical"
+  database:
+    name: "MongoDB"
+    version: "4.0"
+  inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: null
+    allowRoles: null
+    pathPatterns: null
+    resourceSamples: "User-Create"
+    queryParams: null
+    bodyProperties: "id,name"
+  authors: ""
+  abacResources: null
+  category: "NoSQL_Injection"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527090092"
+    createdBy: null
+    createdDate: 1627897800457
+    modifiedBy: null
+    modifiedDate: 1627897800457
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "INJECTION"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "incremental_ids"
+  owner: "Default"
+  assertions:
+  - "@StatusCode == 200"
+  - "@Response.$..id != @Numbers"
+  tags:
+  - "OWASP-API3"
+  severity: "Medium"
+  database: null
+  inactive: false
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Incremental_Ids"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "sla"
+  owner: "Default"
+  assertions:
+  - "@StatusCode == 200 AND @ResponseTime < 1000"
+  tags:
+  - "SLA"
+  severity: "Medium"
+  database: null
+  inactive: false
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "SLA"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "invalid_datatype"
+  owner: "Default"
+  assertions:
+  - "@StatusCode != 401"
+  - "@StatusCode != 404"
+  tags:
+  - "OWASP - OTG-BUSLOGIC-001"
+  - "Fuzz"
+  severity: "Medium"
+  database: null
+  inactive: true
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Invalid_Data"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "no_params"
+  owner: "Default"
+  assertions:
+  - "@StatusCode == 200"
+  tags:
+  - "OWASP - OTG-CONFIG-006"
+  - "Fuzz"
+  severity: "Medium"
+  database: null
+  inactive: false
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "SimpleGET"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "special_chars"
+  owner: "Default"
+  assertions:
+  - "@StatusCode != 200"
+  - "@StatusCode != 401"
+  - "@StatusCode != 404"
+  - "@StatusCode != 500"
+  tags:
+  - "OWASP - OTG-BUSLOGIC-001"
+  - "Fuzz"
+  severity: "Medium"
+  database: null
+  inactive: true
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Special_Chars"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "null_value"
+  owner: "Default"
+  assertions:
+  - "@StatusCode != 200"
+  - "@StatusCode != 401"
+  - "@StatusCode != 404"
+  - "@StatusCode != 500"
+  tags:
+  - "OWASP - OTG-BUSLOGIC-001"
+  - "Fuzz"
+  severity: "Medium"
+  database: null
+  inactive: true
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Null_Value"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "empty_value"
+  owner: "Default"
+  assertions:
+  - "@StatusCode != 200"
+  - "@StatusCode != 401"
+  - "@StatusCode != 404"
+  - "@StatusCode != 500"
+  tags:
+  - "Fuzz"
+  severity: "Medium"
+  database: null
+  inactive: true
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Empty_Value"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "negative_number"
+  owner: "Default"
+  assertions:
+  - "@StatusCode != 401"
+  - "@StatusCode != 404"
+  tags:
+  - "OWASP - OTG-BUSLOGIC-001"
+  - "Fuzz"
+  severity: "Medium"
+  database: null
+  inactive: true
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Negative_Number"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "customize"
+  owner: "Default"
+  assertions: []
+  tags: []
+  severity: null
+  database: null
+  inactive: true
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: null
+    allowRoles: null
+    pathPatterns: null
+    resourceSamples: "Get:/api/v1/alerts[Accept=application/json,Content-Type=application/json]\n\
+      Post:/api/v1/accounts[Accept: application/json,Content-Type: application/json]"
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+  category: "Custom"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: null
+  categoryGroup: null
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: null
+  endpointSelection: "ALL"
+- type: "strong_and_unique_password"
+  owner: "Default"
+  assertions:
+  - "@StatusCode != 200"
+  tags:
+  - "Compliance"
+  - "OWASP-API10"
+  severity: "Medium"
+  database: null
+  inactive: false
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Strong_And_Unique_Password"
+  customType: "Compliance1"
+  useCategoryAssertion: null
+  addOptionalParams: false
+  categoryGroup: "DEFAULT"
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: "Default"
+  endpointSelection: "ALL"
+- type: "sensitive_data_exposure_l2"
+  owner: "FXLabs"
+  assertions:
+  - "@Response.$..email == @Empty"
+  - "@Response.$..ssn == @Empty"
+  tags:
+  - "OWASP-API3"
+  - "[PCI DSS 3.0] 6.5.7"
+  - "[PCI DSS 3.2] 6.5.1"
+  - "OWASP - OTG-INPVAL-001"
+  - "OWASP - OTG-INPVAL-002"
+  - "OWASP OTG-INPVAL-013"
+  - "OWASP API Security Top 10"
+  - "Excessive Data Exposure"
+  - "INPUT VALIDATION"
+  - "NON-INTRUSIVE"
+  severity: "Medium"
+  database: null
+  inactive: false
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Sensitive_Data_Exposure_L2"
+  customType: "Basic"
+  useCategoryAssertion: null
+  addOptionalParams: false
+  categoryGroup: "DEFAULT"
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: "Default"
+  endpointSelection: "ALL"
+- type: "open_api_spec_compliance"
+  owner: "Default"
+  assertions:
+  - "@StatusCode != 200"
+  tags:
+  - "Compliance"
+  - "OWASP-API10"
+  severity: "Medium"
+  database: null
+  inactive: false
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Open_Api_Spec_Compliance"
+  customType: "Compliance1"
+  useCategoryAssertion: null
+  addOptionalParams: false
+  categoryGroup: "DEFAULT"
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: "Default"
+  endpointSelection: "ALL"
+- type: "report_successful_and_unsuccessful_login_attempts"
+  owner: "Default"
+  assertions:
+  - "@StatusCode != 200"
+  tags:
+  - "Compliance"
+  - "[PCI DSS 3.2] 10.2.4"
+  severity: "Medium"
+  database: null
+  inactive: true
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Report_Successful_And_Unsuccessful_Login_Attempts"
+  customType: "Compliance1"
+  useCategoryAssertion: null
+  addOptionalParams: false
+  categoryGroup: "DEFAULT"
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: "Default"
+  endpointSelection: "ALL"
+- type: "rbac_scope"
+  owner: "Default"
+  assertions:
+  - "Disallowed:@StatusCode == 401 OR @StatusCode == 403"
+  - "Allowed:@StatusCode != 401 AND @StatusCode != 403"
+  tags:
+  - "Endpoint_Access_Control"
+  - "OWASP-API5"
+  - "OWASP - OTG-IDENT-001"
+  - "OWASP API Security Top 10"
+  - "Broken Function Level Authorization"
+  severity: "High"
+  database: null
+  inactive: true
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "RBAC_Scope"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: false
+  categoryGroup: "DEFAULT"
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: "Default"
+  endpointSelection: "ALL"
+- type: "insufficient_monitoring"
+  owner: "Default"
+  assertions:
+  - "@StatusCode != 200"
+  tags:
+  - "Compliance"
+  - "OWASP-API10"
+  severity: "Medium"
+  database: null
+  inactive: false
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Insufficient_Monitoring"
+  customType: "Compliance1"
+  useCategoryAssertion: null
+  addOptionalParams: false
+  categoryGroup: "DEFAULT"
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: "Default"
+  endpointSelection: "ALL"
+- type: "incremental_ids_l2"
+  owner: "FXLabs"
+  assertions:
+  - "@Response.$..id != @Numbers"
+  tags:
+  - "OWASP-API3"
+  severity: "Medium"
+  database: null
+  inactive: false
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Incremental_Ids_L2"
+  customType: "Basic"
+  useCategoryAssertion: null
+  addOptionalParams: false
+  categoryGroup: "DEFAULT"
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: "Default"
+  endpointSelection: "ALL"
+- type: "insufficient_logging"
+  owner: "Default"
+  assertions:
+  - "@StatusCode != 200"
+  tags:
+  - "Compliance"
+  - "OWASP-API10"
+  severity: "Medium"
+  database: null
+  inactive: false
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Insufficient_Logging"
+  customType: "Compliance1"
+  useCategoryAssertion: null
+  addOptionalParams: false
+  categoryGroup: "DEFAULT"
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: "Default"
+  endpointSelection: "ALL"
+- type: "error_logging"
+  owner: "Default"
+  assertions:
+  - "@StatusCode != 200"
+  tags:
+  - "Compliance"
+  - "OWASP-API10"
+  severity: "Medium"
+  database: null
+  inactive: false
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Error_Logging"
+  customType: "Compliance1"
+  useCategoryAssertion: null
+  addOptionalParams: false
+  categoryGroup: "DEFAULT"
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: "Default"
+  endpointSelection: "ALL"
+- type: "anonymous_invalid"
+  owner: "FXLabs"
+  assertions:
+  - "Allowed:@StatusCode == 200"
+  - "Disallowed:@StatusCode == 401 OR @StatusCode == 403"
+  tags:
+  - "OWASP-API2"
+  - "OWASP-API7"
+  - "OWASP - OTG-AUTHN-002"
+  - "OWASP API Security Top 10"
+  - "Broken Authentication"
+  - "Security Misconfiguration"
+  - "Non-Intrusive"
+  - "[2020 CWE TOP 24] CWE - 306"
+  severity: "Critical"
+  database: null
+  inactive: false
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Unsecured"
+  customType: "Injection"
+  useCategoryAssertion: null
+  addOptionalParams: false
+  categoryGroup: "DEFAULT"
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: ""
+  endpointSelection: null
+- type: "ratelimit_authenticated"
+  owner: "Default"
+  assertions:
+  - "@ResponseHeaders.X-RateLimit-Limit != @Empty"
+  tags:
+  - "OWASP-API4"
+  - "OWASP API Security Top 10"
+  - "Security Misconfiguration"
+  - "CWE-307"
+  - "CWE-770"
+  severity: "Medium"
+  database: null
+  inactive: false
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Ratelimit_Authenticated"
+  customType: "BasicCustomHeader"
+  useCategoryAssertion: null
+  addOptionalParams: false
+  categoryGroup: "DEFAULT"
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: "Default"
+  endpointSelection: "GET_SINGLE_PLAYBOOK"
+- type: "disable_user_after_5_failed_login_attempts"
+  owner: "Default"
+  assertions:
+  - "@StatusCode != 200"
+  tags:
+  - "OWASP-API10"
+  - "Compliance"
+  severity: "Medium"
+  database: null
+  inactive: false
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Disable_User_After_5_Failed_Login_Attempts"
+  customType: "Compliance1"
+  useCategoryAssertion: null
+  addOptionalParams: false
+  categoryGroup: "DEFAULT"
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: "Default"
+  endpointSelection: "ALL"
+- type: "resource_not_found_logging"
+  owner: "Default"
+  assertions:
+  - "@StatusCode != 200"
+  tags:
+  - "OWASP-API10"
+  - "OWASP-A10"
+  - "Compliance"
+  - "OWASP-AT-004"
+  - "OWASP API Security Top 10"
+  - "Broken Authentication"
+  - "Non-Intrusive"
+  severity: "Medium"
+  database: null
+  inactive: false
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Resource_Not_Found_Logging"
+  customType: "Compliance1"
+  useCategoryAssertion: null
+  addOptionalParams: false
+  categoryGroup: "DEFAULT"
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: "Default"
+  endpointSelection: "ALL"
+- type: "http_authentication_scheme"
+  owner: "Default"
+  assertions:
+  - "@RequestHeaders.Authorization != null AND @RequestHeaders.Authorization startsWith\
+    \ Bearer"
+  tags:
+  - "OWASP-A3"
+  - "NON-INTRUSIVE"
+  - "[2020 CWE TOP 7] CWE - 200"
+  - "CWE-319"
+  - "OWASP - OTG-AUTHN-001"
+  severity: "Medium"
+  database: null
+  inactive: false
+  matches: []
+  authors: ""
+  abacResources: null
+  category: "Http_Authentication_Scheme"
+  customType: "BasicCustomHeader"
+  useCategoryAssertion: null
+  addOptionalParams: false
+  categoryGroup: "DEFAULT"
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: "Default"
+  endpointSelection: "ALL"
+- type: "excessive_data_exposure"
+  owner: "Default"
+  assertions:
+  - "@ResponseDepth <= 5"
+  tags:
+  - "OWASP-API3"
+  - ""
+  severity: "Medium"
+  database: null
+  inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: null
+    allowRoles: null
+    pathPatterns: "GET:/accounts\nGET:/balances\nGET:/beneficiaries\nGET:/direct-debits\n\
+      GET:/offers\nGET:/party\nGET:/products\nGET:/scheduled-payments\nGET:/standing-orders\n\
+      GET:/statements\nGET:/transactions\n"
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+  category: "Excessive_Data_Exposure"
+  customType: "Basic"
+  useCategoryAssertion: null
+  addOptionalParams: false
+  categoryGroup: "DEFAULT"
+  payloads:
+  - id: "8a8081747b0642e4017b064527070091"
+    createdBy: null
+    createdDate: 1627897800454
+    modifiedBy: null
+    modifiedDate: 1627897800454
+    version: null
+    inactive: false
+    projectId: "8a8081747b0642e4017b06451b8b0000"
+    categoryGroup: "DEFAULT"
+    method: "POST"
+    endpoint: "/account-access-consents"
+    payload: ""
+    resourceName: null
+    locked: false
+  customHeaders: null
+  auth: "Default"
+  endpointSelection: "ALL"
+globalSkipPaths: null
